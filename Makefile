@@ -1,11 +1,16 @@
 CC = gcc
 
-say_hello: hello.c
-  echo "compiling"
-  ${CC} hello.c -o hello
-  
+all: say_hello
+
+say_hello: hello.o
+	@echo "compiling"
+	${CC} hello.o -o hello
+
+hello.o: hello.c
+	${CC} -c hello.c
+
 clean:
-  echo "cleaning" 
-  rm *.o hello
-  
-  
+	@echo "cleaning" 
+	rm *.o hello
+
+
